@@ -1,46 +1,35 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <HelloVue msg="Welcome to the Jungle" />
-    <div id="app-2">
-      <span v-bind:title="message">
-        Hover your mouse over me for a few seconds to see my dynamically bound
-        title!
-      </span>
-    </div>
-    <div id="app-4">
-      <ol>
-        <li v-for="todo in todos" v-bind:key="todo.id">
-          {{ todo.text }}
+    <HelloVue/>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <router-link to="/" class="navbar-brand">FutsalTournament</router-link>
+      <div class="navbar-nav mr-auto">
+      <ul>
+        <li class="nav-item">
+          <router-link to="/tutorials" class="nav-link">Tutorials</router-link>
         </li>
-      </ol>
+        <li class="nav-item">
+          <router-link to="/add" class="nav-link">Add</router-link>
+        </li>
+      <ul>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+
 import HelloVue from "./components/HelloVue.vue";
-//import hideText from "./components/hideText.vue";
+//import Dashboard from "./components/Dashboard.vue"
 
 export default {
-  name: "App",
+  name: "app",
   components: {
-    HelloVue,
-  },
-  data() {
-    return {
-      message: "You loaded this page on " + new Date().toLocaleString(),
-    };
-  },
-  data2() {
-    return {
-      todos: [
-        { text: "Learn JavaScript" },
-        { text: "Learn Vue" },
-        { text: "Build something awesome" },
-      ],
-    };
+    HelloVue, Dashboard,
   },
 };
 </script>
